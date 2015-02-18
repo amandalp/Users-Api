@@ -1,41 +1,62 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :update, :destroy]
 
-  respond_to :json
-
+  # GET /users
+  # GET /users.json
   def index
-    respond_with (@users = User.all)
+    @users = User.all
+
+    render json: @users
   end
 
-  def new
-    respond_with User.new
-  end
-
-  def create
-    user = User.create(user_params)
-    session[:user_id] = user.id
-    respond_with user
-  end
-
+  # GET /users/1
+  # GET /users/1.json
   def show
-    respond_with @user
+    render json: @user
   end
 
+  # POST /users
+  # POST /users.json
+  def create
+    @user = User.new(user_params)
+
+    if @user.save
+      render json: @user, status: :created, location: @user
+    else
+      render json: @user.errors, status: :unprocessable_entity
+    end
+  end
+
+  # PATCH/PUT /users/1
+  # PATCH/PUT /users/1.json
   def update
-    respond_with @user.update(user_params)
+    @user = User.find(params[:id])
+
+    if @user.update(user_params)
+      head :no_content
+    else
+      render json: @user.errors, status: :unprocessable_entity
+    end
   end
 
+  # DELETE /users/1
+  # DELETE /users/1.json
   def destroy
-    respond_with @user.destroy
+    @user.destroy
+
+    head :no_content
   end
 
   private
+
     def set_user
-      @user = @User.find(params[:id])
+      @user = User.find(params[:id])
     end
 
     def user_params
       params.fetch(:user,{}).permit(:username, :password, :password_confirmation)
     end
-  end
+    # def user_params
+    #   params.require(:user).permit(:username, :password_digest)
+    # end
 end
