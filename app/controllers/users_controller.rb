@@ -53,7 +53,7 @@ class UsersController < ApplicationController
       # GVapi.sms(phone, message)
       puts "Sending text message to:"
       puts contact.to_json
-      GVapi.sms(contact.phone, "Hi")
+      GVapi.sms(contact.phone, "Hi, this is #{@user.name} using StressLess. I'm having a tough time. Call or send a text at #{@user.phone} when you get a chance!")
     end
     puts "User has #{@user.contacts.length} contacts"
     render json: { success: true }
