@@ -1,9 +1,14 @@
 Rails.application.routes.draw do
+
+  resources :contacts, only: [:create, :update, :show, :destroy]
+
   resources :sessions, only: [:destroy]
 
   post "login" => "sessions#create", :as => "login"
 
-  resources :users, except: [:new, :edit]
+  resources :users, except: [:new, :edit] do
+    post :alert_all_contacts, on: :member
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

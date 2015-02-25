@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :update, :destroy]
+  before_action :set_user, only: [:show, :update, :destroy, :alert_all_contacts]
 
   # GET /users
   # GET /users.json
@@ -45,6 +45,18 @@ class UsersController < ApplicationController
     @user.destroy
 
     head :no_content
+  end
+
+  def alert_all_contacts
+    @user.contacts.each do |contact|
+      # Send a text message:
+      # GVapi.sms(phone, message)
+      puts "Sending text message to:"
+      puts contact.to_json
+      GVapi.sms(contact.phone, "Hi")
+    end
+    puts "User has #{@user.contacts.length} contacts"
+    render json: { success: true }
   end
 
   private

@@ -40,12 +40,18 @@ gem 'rack-cors', :require => 'rack/cors'
 # To use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
+gem 'twilio-ruby'
+
+gem 'googlevoiceapi'
+
 group :production do
   gem 'rails_12factor'
 end
 
 # Use unicorn as the app server
 # gem 'unicorn'
+
+gem 'pry-rails', group: :development
 
 # Deploy with Capistrano
 # gem 'capistrano', :group => :development

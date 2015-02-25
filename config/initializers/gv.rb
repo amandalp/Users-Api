@@ -1,0 +1,1 @@
+GVapi = GoogleVoice::Api.new('redpanicbtnapp@gmail.com', 'panic123123')

@@ -5,6 +5,8 @@ class User < ActiveRecord::Base
     uniqueness: true,
     presence: true
 
+  has_many :contacts
+
   def self.authenticate username, password
     User.find_by_username(username).try(:authenticate,password)
   end
