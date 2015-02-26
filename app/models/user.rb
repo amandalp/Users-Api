@@ -6,6 +6,8 @@ class User < ActiveRecord::Base
     presence: true
 
   has_many :contacts
+  has_many :defenses
+  has_many :triggers
 
   def self.authenticate username, password
     User.find_by_username(username).try(:authenticate,password)

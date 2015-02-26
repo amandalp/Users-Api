@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
 
+  resources :triggers, only: [:index, :create, :update, :show]
+
   resources :contacts, only: [:index, :create, :update, :show, :destroy]
+
+  resources :defenses, only: [:index, :create, :update, :show]
 
   resources :sessions, only: [:destroy]
 
