@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  resources :contacts, only: [:create, :update, :show, :destroy]
+  resources :contacts, only: [:index, :create, :update, :show, :destroy]
 
   resources :sessions, only: [:destroy]
 
