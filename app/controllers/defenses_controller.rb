@@ -8,7 +8,7 @@ class DefensesController < ApplicationController
  	end
 
 	def show
-  	render json: @defenses
+  	render json: @defense
 	end
 
   def create
