@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :defense_checkins, only: [:index, :create, :show]
 
   resources :triggers, only: [:index, :create, :update, :show]
 
