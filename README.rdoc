@@ -1,28 +1,11 @@
-== README
+== Users-Api for StressLess
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This Users-Api was built as a backend for the StressLess mobile app. It stores user sessions, user information, users' contacts' information, user triggers, user defenses, user moods, and user notes.
 
-Things you may want to cover:
+Technologies:
 
-* Ruby version
+* Ruby
 
-* System dependencies
+* Rails
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+* PostgreSQL
